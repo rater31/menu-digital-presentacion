@@ -24,11 +24,12 @@ import Circle from '../components/Hero.astro';
 	
 	}
 	 .card2{
-		/* */
 		width: 200px;
 		height: 100px;
 		position: relative;
+		
 	} 
+
 	.container .card{
 		width: 90%;
 		height: 100px;
@@ -37,6 +38,7 @@ import Circle from '../components/Hero.astro';
 		position: relative;
 		display: flex;
 		justify-content: end;
+		z-index: -2;
 	}
 	.circle{
 		width: 50px;
@@ -44,16 +46,21 @@ import Circle from '../components/Hero.astro';
 		background-color: #24246e;
 		border-radius: 50%;
 		position: absolute;
+		
+	}
+	.circle:hover{
+			background-color: #d64d16;
+		
 	}
 	.circle::after{
-		border: 2px solid #24246e;
-		/* translate: -2px -50px; */
 		background-color: white;
 		content: '';
-		width: 50px;
-		height: 50px;
+		z-index: -1;
+		width: 60px;
+		height: 60px;
 		border-radius: 50%;
-		position: relative;
+		translate: -5px -5px;
+		position: absolute;
 	}
 	.container .card .circle:nth-child(1){
 		top: 80%;
