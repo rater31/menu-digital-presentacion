@@ -1,8 +1,11 @@
 ---
-import Circle from '../components/Hero.astro';
+import logo from '../assets/logo.jpeg';
+import Image from 'astro/components/Image.astro';
 ---
 <div class="container">
-	<div class=" card  bg-red-500 ">
+
+	<div class=" card  bg-[#141e26] ">
+		<Image src={logo}, alt="Logo", class="w-auto h-100%  rounded-full relative z-2  "/>
 		<div class="card2">
 			<div class="circle"></div>
 			<div class="circle"></div>
@@ -19,49 +22,75 @@ import Circle from '../components/Hero.astro';
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: center;
 		height: 150px;
 		width: 100%;
 	
 	}
 	 .card2{
 		width: 200px;
-		height: 100px;
+		height: 100%;
 		position: relative;
+		z-index: 1;
+		
 		
 	} 
 
 	.container .card{
 		width: 90%;
 		height: 100px;
-		background-color: red;
 		border-radius: 15px;
 		position: relative;
 		display: flex;
-		justify-content: end;
-		z-index: -2;
+		justify-content: space-between;
+
+		
+	
 	}
-	.circle{
+	 .circle{
 		width: 50px;
 		height: 50px;
 		background-color: #24246e;
 		border-radius: 50%;
 		position: absolute;
+		transition: all 0.1s ;
+		cursor: pointer;
 		
 	}
 	.circle:hover{
-			background-color: #d64d16;
+		transform: scale(1.2);
 		
+		
+	} 
+	.circle:hover::after{
+		background-color: #88452b;
 	}
-	.circle::after{
+
+	.circle::before{
 		background-color: white;
 		content: '';
-		z-index: -1;
+		z-index: -2;
 		width: 60px;
 		height: 60px;
 		border-radius: 50%;
 		translate: -5px -5px;
 		position: absolute;
 	}
+	.circle::after{
+		/* background-color: rgba(0, 0, 255, 0); */
+		background-image: url('../assets/logo.jpeg');
+		background-size: cover;
+		content: '';
+		z-index: 2;
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		translate: 0px 0px;
+		position: absolute;
+		transition: all 0.3s;
+	
+	}
+	
 	.container .card .circle:nth-child(1){
 		top: 80%;
 	}	
@@ -75,7 +104,3 @@ import Circle from '../components/Hero.astro';
 		top: 80%;
 		left: 70%;
 	}
-
-	.ani{
-		clip-path: path('M 11,0 L 490,0 A 10,10,0,0,1 500,10 L 500,70 A 10,10,0,0,1 490,80 L 250,80 A 10,10,0,0,0 240,90 A 10,10,0,0,1 230,100 L 10,100 A 10,10,0,0,1 0,90 L 0,10 A 10,10,0,0,1 10,0 Z');
-		}
